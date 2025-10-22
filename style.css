@@ -10,6 +10,7 @@ body {
   color: #e6f0f6;
   overflow-x: hidden;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 /* Hero section */
@@ -21,6 +22,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: fadeIn 1.2s ease-out;
 }
 .hero-image {
   width: 100%;
@@ -35,6 +37,7 @@ body {
   text-align: center;
   color: white;
   padding: 0 20px;
+  animation: slideUp 1s ease-out;
 }
 .hero-overlay h1 {
   font-size: 2.8rem;
@@ -58,6 +61,14 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
 /* Main content */
 main {
@@ -67,6 +78,13 @@ main {
 }
 section {
   margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Stats section */
@@ -84,10 +102,11 @@ section {
   border-radius: 12px;
   min-width: 160px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .stat:hover {
   transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.3);
 }
 .stat-label {
   color: #9aa6b2;
@@ -123,6 +142,11 @@ section {
   border-radius: 10px;
   min-width: 180px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
 }
 .contact-card a {
   color: #e6f0f6;
@@ -145,10 +169,11 @@ section {
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 .links a:hover {
   background: rgba(255, 255, 255, 0.06);
+  transform: scale(1.05);
 }
 
 /* Faculty section */
@@ -182,6 +207,10 @@ section {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+.faculty-card:hover img {
+  transform: scale(1.05);
 }
 .faculty-card a {
   display: inline-block;
@@ -198,6 +227,10 @@ section {
   padding: 20px;
   border-radius: 12px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+.notice-box:hover {
+  transform: translateY(-4px);
 }
 .notice-box a {
   display: inline-block;
