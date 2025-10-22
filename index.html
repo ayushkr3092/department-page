@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B.Sc. Electronics | Sri Venkateswara College</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +17,7 @@
     <div class="hero-overlay">
       <h1>B.Sc. Electronics Department</h1>
       <p>⚡ Innovating the Future, One Circuit at a Time</p>
-      <p class="credit">Created for the students of eletronics</p>
+      <p class="credit">Created by Ayush for Sri Venkateswara College</p>
       <div class="scroll-down">↓</div>
     </div>
   </header>
@@ -35,11 +39,11 @@
     <section class="contacts">
       <div class="contact-card">
         <h3>Class CR (Taran)</h3>
-        <p>📞 <a href="tel:+918799792086">8799792086</a></p>
+        <p>📞 <a href="tel:+91879992086">879992086</a></p>
       </div>
       <div class="contact-card">
-        <h3>Female CR (Aditi)</h3>
-        <p>📞 <a href="tel:+919667486973">9667486973</a></p>
+        <h3>Female CR</h3>
+        <p>📞 <a href="tel:+91879992086">879992086</a> (Aditi)</p>
       </div>
       <div class="contact-card">
         <h3>Ayush</h3>
@@ -95,7 +99,7 @@
     <p>© 2025 Sri Venkateswara College | Designed by Ayush</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Animation Scripts -->
   <script>
     // Count-up animation
     document.addEventListener('DOMContentLoaded', () => {
@@ -129,6 +133,19 @@
       });
     });
 
+    // Section fade-in animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.3 });
+      sections.forEach(section => observer.observe(section));
+    });
+
     // Faculty card animation
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.faculty-card');
@@ -144,4 +161,3 @@
   </script>
 </body>
 </html>
-
