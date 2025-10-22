@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B.Sc. Electronics | Sri Venkateswara College</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Fullscreen Hero Section -->
+  <!-- Hero Section -->
   <header class="hero">
     <img src="grup pic.jpeg" alt="Group Photo" class="hero-image" />
     <div class="hero-overlay">
@@ -95,6 +95,7 @@
     <p>© 2025 Sri Venkateswara College | Designed by Ayush</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
     // Count-up animation
     document.addEventListener('DOMContentLoaded', () => {
@@ -126,6 +127,19 @@
         }, { threshold: 0.4 });
         observer.observe(el);
       });
+    });
+
+    // Faculty card animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.faculty-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.3 });
+      cards.forEach(card => observer.observe(card));
     });
   </script>
 </body>
