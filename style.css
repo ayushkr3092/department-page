@@ -289,3 +289,51 @@ main{max-width:var(--max-width);margin:0 auto;padding:2rem 1rem;position:relativ
 /* Responsive */
 @media (max-width:900px){ .summary-stats{flex-direction:column;align-items:center;transform:translateY(-1.5rem)} .faculty-card{width:46%} .footer-inner{flex-direction:column;gap:.6rem} }
 @media (max-width:520px){ .faculty-card{width:100%} .hero-content{padding:1.25rem} .stat{min-width:100%} .nav{display:none} }
+
+
+/* Base styles */
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
