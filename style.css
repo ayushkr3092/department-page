@@ -35,9 +35,108 @@ body{
 .brand{display:flex;align-items:center;gap:.6rem}
 .logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent-2));display:inline-block;box-shadow:0 6px 18px rgba(0,255,211,0.08)}
 .brand-text{font-weight:700}
-.nav a{color:rgba(255,255,255,0.9);margin:0 .6rem;text-decoration:none;font-weight:600}
-.controls{display:flex;align-items:center;gap:.5rem}
-.icon-btn{background:transparent;border:0;color:var(--text);cursor:pointer;font-size:1rem}
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav a{
+  color:rgba(255,255,255,0.9);
+  margin:0 .6rem;
+  text-decoration:none;
+  font-weight:600;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0 .6rem;
+}
+
+.dropdown-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  color: var(--accent);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.05);
+  z-index: 1000;
+  animation: dropdownFade 0.2s ease-out;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background: rgba(0,255,211,0.1);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:.5rem
+}
+
+.icon-btn{
+  background:transparent;
+  border:0;
+  color:var(--text);
+  cursor:pointer;
+  font-size:1rem
+}
 .contact-mini{text-decoration:none;color:var(--accent);font-weight:700;padding:.25rem .5rem;border-radius:6px;background:rgba(0,0,0,0.18)}
 .topbar-solid{background:linear-gradient(180deg, rgba(1,5,6,0.85), rgba(1,5,6,0.65));box-shadow:0 10px 40px rgba(0,0,0,0.5)}
 
