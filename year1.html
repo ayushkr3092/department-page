@@ -330,105 +330,175 @@
     .green-box{background:#dffaf0}
     @media (max-width:760px){ .table.timetable{min-width:760px} }
   </style>
+  
+ <style>
+  .timetable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
 
-  <table class="table timetable" role="table" aria-describedby="timetableDesc">
-    <caption id="timetableDesc" class="sr-only">Weekly timetable for 1st Year BSc Electronics</caption>
-    <thead>
-      <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>8:45 – 9:45 am</td>
-        <td class="tt-blue">DSC 1<br>ICT FL<br>JL</td>
-        <td class="tt-blue">DSC 1 331<br>JL</td>
-        <td class="tt-orange">GE I, Th<br>257 RN</td>
-        <td class="tt-blue">DSC 2 251<br>HS</td>
-        <td></td>
-        <td rowspan="4" class="tt-blue">SEC Semester I<br>RN + HY (1-2)</td>
-      </tr>
+  .timetable th, .timetable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+  }
 
-      <tr>
-        <td>9:45 – 10:45 am</td>
-        <td class="tt-blue">DSC 1 LAB<br>ICT Faculty Lab<br>JL + RH</td>
-        <td class="tt-orange">AEC EVS 159</td>
-        <td class="tt-blue">DSC 2 BII, DSC 3 BI Lab<br>Electronics Lab I & II, 261<br>NK + HS</td>
-        <td class="tt-blue">DSC 2 251<br>HS</td>
-        <td></td>
-      </tr>
+  .timetable thead {
+    background-color: #333;
+    color: #fff;
+  }
 
-      <tr>
-        <td>10:45 – 11:45 am</td>
-        <td></td>
-        <td></td>
-        <td class="tt-blue">DSC 3 257<br>NK</td>
-        <td class="tt-blue">DSC 1 251<br>JL</td>
-        <td class="tt-blue">DSC 3 257<br>NK</td>
-      </tr>
+  .tt-blue {
+    background-color: #e0f0ff;
+    color: #003366;
+    font-weight: bold;
+  }
 
-      <tr>
-        <td>11:45 – 12:45 pm</td>
-        <td></td>
-        <td></td>
-        <td class="tt-blue">DSC 3 257<br>NK</td>
-        <td></td>
-        <td class="tt-blue">DSC 3 257<br>NK</td>
-      </tr>
+  .tt-orange {
+    background-color: #fff4e0;
+    color: #994d00;
+    font-weight: bold;
+  }
 
-      <tr>
-        <td>12:45 – 1:05 pm</td>
-        <td colspan="6" class="lunch">Lunch Break</td>
-      </tr>
+  .tt-green {
+    background-color: #e6ffe6;
+    color: #006600;
+    font-weight: bold;
+  }
 
-      <tr>
-        <td>1:05 – 2:05 pm</td>
-        <td class="tt-orange">GE I Th</td>
-        <td class="tt-blue">DSC 2 BI, DSC 3 BII Lab<br>Electronics Lab I & II, 261<br>NK + HS</td>
-        <td></td>
-        <td class="tt-orange">AEC EVS 159</td>
-        <td class="tt-orange">GE I, Th<br>ICT Faculty Lab RN</td>
-        <td class="tt-green">VAC Semester I HS</td>
-      </tr>
+  .lunch {
+    background-color: #f0f0f0;
+    font-style: italic;
+    font-weight: bold;
+    color: #666;
+  }
 
-      <tr>
-        <td>2:05 – 3:05 pm</td>
-        <td></td>
-        <td></td>
-        <td class="tt-blue">DSC 2 257 HS</td>
-        <td class="tt-orange">AEC EVS 159</td>
-        <td class="tt-orange">GE I, Th<br>ICT Faculty Lab RN</td>
-        <td></td>
-      </tr>
+  .timetable td:hover {
+    background-color: #ffffcc;
+    transition: background-color 0.3s ease;
+  }
 
-      <tr>
-        <td>3:05 – 4:05 pm</td>
-        <td></td>
-        <td class="tt-orange">GE I Practical<br>(ICT Faculty Lab)</td>
-        <td class="tt-green">VAC Semester I HS</td>
-        <td></td>
-        <td></td>
-        <td class="tt-orange">AEC Sem I</td>
-      </tr>
+  .legend {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
 
-      <tr>
-        <td>4:05 – 5:05 pm</td>
-        <td></td>
-        <td></td>
-        <td>*</td>
-        <td>*</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  .legend div {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+
+  .orange-box, .blue-box, .green-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 1px solid #999;
+  }
+
+  .orange-box { background-color: #fff4e0; }
+  .blue-box { background-color: #e0f0ff; }
+  .green-box { background-color: #e6ffe6; }
+</style>
+
+<table class="table timetable" role="table" aria-describedby="timetableDesc">
+  <caption id="timetableDesc" class="sr-only">Weekly timetable for 1st Year BSc Electronics</caption>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8:45 – 9:45 am</td>
+      <td></td>
+      <td></td>
+      <td class="tt-orange">GE I, Th<br>257 RN</td>
+      <td class="tt-blue">DSC 2 251<br>HS</td>
+      <td></td>
+      <td rowspan="4" class="tt-blue">SEC Semester I<br>RN + HY (1-2)</td>
+    </tr>
+
+    <tr>
+      <td>9:45 – 10:45 am</td>
+      <td class="tt-blue">DSC 1<br>ICT FL<br>JL</td>
+      <td class="tt-blue">DSC 1 331<br>JL</td>
+      <td rowspan="2" class="tt-blue">DSC 2 BII, DSC 3 BI Lab<br>Electronics Lab I & II, 261<br>NK + HS</td>
+      <td class="tt-blue">DSC 2 251<br>HS</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>10:45 – 11:45 am</td>
+      <td rowspan="2" class="tt-blue">DSC 1 LAB<br>ICT Faculty Lab<br>JL + RH</td>
+      <td class="tt-orange">AEC EVS 159</td>
+      <td class="tt-blue">DSC 1 251<br>JL</td>
+      <td class="tt-blue">DSC 3 257<br>NK</td>
+    </tr>
+
+    <tr>
+      <td>11:45 – 12:45 pm</td>
+      <td></td>
+      <td class="tt-blue">DSC 3 257<br>NK</td>
+      <td></td>
+      <td class="tt-blue">DSC 3 257<br>NK</td>
+    </tr>
+
+    <tr>
+      <td>12:45 – 1:05 pm</td>
+      <td colspan="6" class="lunch">Lunch Break</td>
+    </tr>
+
+    <tr>
+      <td>1:05 – 2:05 pm</td>
+      <td class="tt-orange">GE I Th</td>
+      <td class="tt-blue">DSC 2 BI, DSC 3 BII Lab<br>Electronics Lab I & II, 261<br>NK + HS</td>
+      <td></td>
+      <td class="tt-orange">AEC EVS 159</td>
+      <td class="tt-orange">GE I, Th<br>ICT Faculty Lab RN</td>
+      <td rowspan="2" class="tt-green">VAC Semester I HS</td>
+    </tr>
+
+    <tr>
+      <td>2:05 – 3:05 pm</td>
+      <td></td>
+      <td class="tt-blue">DSC 2 BI, DSC 3 BII Lab<br>Electronics Lab I & II, 261<br>NK + HS</td>
+      <td class="tt-blue">DSC 2 257 HS</td>
+      <td class="tt-orange">AEC EVS 159</td>
+      <td class="tt-orange">GE I, Th<br>ICT Faculty Lab RN</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>3:05 – 4:05 pm</td>
+      <td></td>
+      <td rowspan="2" class="tt-green">VAC Semester I HS</td>
+      <td></td>
+      <td></td>
+      <td class="tt-orange">GE I Practical<br>(ICT Faculty Lab)</td>
+      <td rowspan="2" class="tt-orange">AEC Sem I</td>
+    </tr>
+
+    <tr>
+      <td>4:05 – 5:05 pm</td>
+      <td></td>
+      <td></td>
+      <td>*</td>
+      <td>*</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="legend">
   <div><span class="orange-box"></span> Orange — GE / ICT / Language / Humanities</div>
